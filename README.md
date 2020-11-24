@@ -59,7 +59,7 @@ RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
 
 #开启转发(此处为逗比脚本)：
 
-`wget http://ftp.taoluyun.cc/iptables-pf.sh && chmod +x iptables-pf.sh`
+`wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/iptables-pf.sh && chmod +x iptables-pf.sh && bash iptables-pf.sh`
 
 然后执行 `./iptables-pf.sh` 执行选项1安装iptables
 
@@ -82,7 +82,7 @@ Debian执行:
 #下载被控文件：
 
 ```bash
-wget http://ftp.taoluyun.cc/ip_table && chmod +x ip_table
+wget https://raw.githubusercontent.com/xb0or/rules-panel/master/Slave/Go/ip_table && chmod +x ip_table
 ```
 
 #设定定时任务：
@@ -98,19 +98,6 @@ wget http://ftp.taoluyun.cc/ip_table && chmod +x ip_table
 *10.0.0.4 为主网卡上的IP，查看方法：`ip addr`。如果您的IP为公网IP，并且是动态IP，当IP变动时需要修改此处
 
 *https://baidu.com/api 为您的主控URI，请自行替换为您的域名
-
-
-# 被控端部署教程-NodeJS版(此版本不推荐使用，建议使用Golang版):
-
-推荐使用Golang版被控端，如果需要使用此版本，请自行研究！
-
-*更换Golang需要关闭nodejs被控，以免引起混乱
-
-`pm2 delete 0`
-
-`pm2 save`
-
-然后删除nodejs相关文件即可
 
 
 #### #错误分析
